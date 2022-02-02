@@ -1,3 +1,153 @@
+/* spartan-regular - latin */
+@font-face {
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/spartan-v7-latin/spartan-v7-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("../fonts/spartan-v7-latin/spartan-v7-latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */
+      url("../fonts/spartan-v7-latin/spartan-v7-latin-regular.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../fonts/spartan-v7-latin/spartan-v7-latin-regular.woff")
+      format("woff"),
+    /* Modern Browsers */
+      url("../fonts/spartan-v7-latin/spartan-v7-latin-regular.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("../fonts/spartan-v7-latin/spartan-v7-latin-regular.svg#Spartan")
+      format("svg"); /* Legacy iOS */
+}
+/* spartan-500 - latin */
+@font-face {
+  font-family: "Spartan bold";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/spartan-v7-latin/spartan-v7-latin-500.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("../fonts/spartan-v7-latin/spartan-v7-latin-500.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/spartan-v7-latin/spartan-v7-latin-500.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../fonts/spartan-v7-latin/spartan-v7-latin-500.woff") format("woff"),
+    /* Modern Browsers */
+      url("../fonts/spartan-v7-latin/spartan-v7-latin-500.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("../fonts/spartan-v7-latin/spartan-v7-latin-500.svg#Spartan")
+      format("svg"); /* Legacy iOS */
+}
+/* spartan-700 - latin */
+@font-face {
+  font-family: "Spartan bolder";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/spartan-v7-latin/spartan-v7-latin-700.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("../fonts/spartan-v7-latin/spartan-v7-latin-700.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/spartan-v7-latin/spartan-v7-latin-700.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../fonts/spartan-v7-latin/spartan-v7-latin-700.woff") format("woff"),
+    /* Modern Browsers */
+      url("../fonts/spartan-v7-latin/spartan-v7-latin-700.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("../fonts/spartan-v7-latin/spartan-v7-latin-700.svg#Spartan")
+      format("svg"); /* Legacy iOS */
+}
+
 html {
   font-size: 16px;
+  font-family: "Spartan", sans-serif;
+}
+
+$darkPurple: #512051;
+$informationTextColor: #927b91;
+$introReviewsSectionBackground: #f7f2f7;
+$spartan: "Spartan", sans-serif;
+$spartanBold: "Spartan bold", sans-serif;
+$spartanBolder: "Spartan bolder", sans-serif;
+$white: #ffffff;
+$lightPink: #ee69a4;
+
+.intro {
+  &__information {
+    &__headline {
+      color: $darkPurple;
+      font-family: $spartanBolder;
+      text-align: center;
+    }
+
+    &__text {
+      color: $informationTextColor;
+      font-family: $spartanBold;
+      font-size: 15px;
+      line-height: 25px;
+      letter-spacing: -0.5px;
+      text-align: center;
+      padding: 18px 24px;
+    }
+  }
+
+  &__reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &__section {
+      background: $introReviewsSectionBackground;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px;
+      gap: 16px;
+
+      & p {
+        color: $darkPurple;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.users {
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__single-user {
+    background: $darkPurple;
+    gap: 10px;
+    border-radius: 8px;
+    padding: 40px 32px 32px 32px;
+    display: flex;
+    flex-direction: column;
+
+    &__profile {
+      width: 30%;
+    }
+
+    &__info {
+      flex-direction: row;
+
+      &____name {
+        color: $white;
+      }
+
+      &__verified {
+        color: $lightPink;
+      }
+    }
+
+    &__opinion {
+      color: $white;
+    }
+  }
 }
