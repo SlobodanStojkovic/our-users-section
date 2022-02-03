@@ -77,10 +77,14 @@ $lightPink: #ee69a4;
 
 .intro {
   &__information {
+    margin: 16px 24px 24px 16px;
+
     &__headline {
       color: $darkPurple;
       font-family: $spartanBolder;
       text-align: center;
+      margin: 0;
+      padding: 16px 24px 0px 24px;
     }
 
     &__text {
@@ -91,6 +95,7 @@ $lightPink: #ee69a4;
       letter-spacing: -0.5px;
       text-align: center;
       padding: 18px 24px;
+      margin: 0;
     }
   }
 
@@ -107,6 +112,7 @@ $lightPink: #ee69a4;
       align-items: center;
       padding: 16px;
       gap: 16px;
+      margin: 0px 23px;
 
       & p {
         color: $darkPurple;
@@ -121,21 +127,27 @@ $lightPink: #ee69a4;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin-top: 33px;
 
   &__single-user {
     background: $darkPurple;
-    gap: 10px;
+    gap: 15px;
     border-radius: 8px;
     padding: 40px 32px 32px 32px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-areas:
+      "a a b b b b b b b"
+      "a a b b b b b b b"
+      "c c c c c c c c c"
+      "c c c c c c c c c";
 
     &__profile {
-      width: 30%;
+      grid-area: a;
     }
 
     &__info {
-      flex-direction: row;
+      grid-area: b;
 
       &____name {
         color: $white;
@@ -148,6 +160,7 @@ $lightPink: #ee69a4;
 
     &__opinion {
       color: $white;
+      grid-area: c;
     }
   }
 }
