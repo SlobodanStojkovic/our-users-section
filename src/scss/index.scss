@@ -75,16 +75,46 @@ $spartanBolder: "Spartan bolder", sans-serif;
 $white: #ffffff;
 $lightPink: #ee69a4;
 
+.container {
+  @media (min-width: 768px) {
+    height: 100vh;
+    margin: 100px;
+  }
+}
+
 .intro {
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-areas:
+      "a a a a b b b b b b"
+      "a a a a b b b b b b";
+    gap: 132px;
+  }
+
   &__information {
     margin: 16px 24px 24px 16px;
 
+    @media (min-width: 768px) {
+      grid-area: a;
+      text-align: left;
+    }
+
     &__headline {
       color: $darkPurple;
-      font-family: $spartanBolder;
+      font-family: $spartanBold;
       text-align: center;
       margin: 0;
       padding: 16px 24px 0px 24px;
+
+      @media (min-width: 768px) {
+        text-align: left;
+        font-size: 48px;
+        font-weight: bold;
+        line-height: 48px;
+        letter-spacing: -1.71429px;
+        font-family: $spartanBolder;
+      }
     }
 
     &__text {
@@ -96,6 +126,17 @@ $lightPink: #ee69a4;
       text-align: center;
       padding: 18px 24px;
       margin: 0;
+
+      @media (min-width: 768px) {
+        text-align: left;
+        font-family: Spartan;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 25px;
+        letter-spacing: -0.5px;
+        font-family: $spartanBold;
+      }
     }
   }
 
@@ -103,6 +144,12 @@ $lightPink: #ee69a4;
     display: flex;
     flex-direction: column;
     gap: 16px;
+
+    @media (min-width: 768px) {
+      grid-area: b;
+      display: flex;
+      margin-left: 90px;
+    }
 
     &__section {
       background: $introReviewsSectionBackground;
@@ -114,9 +161,40 @@ $lightPink: #ee69a4;
       gap: 16px;
       margin: 0px 23px;
 
+      @media (min-width: 768px) {
+        flex-direction: row;
+        padding: 0;
+
+        &:nth-of-type(1) {
+          margin-left: 0px;
+          margin-right: 144px;
+        }
+
+        &:nth-of-type(2) {
+          margin-left: 48px;
+          margin-right: 96px;
+        }
+
+        &:nth-of-type(3) {
+          margin-left: 96px;
+          margin-right: 48px;
+        }
+      }
+
       & p {
         color: $darkPurple;
         margin: 0;
+        font-family: $spartanBolder;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 13px;
+        line-height: 15px;
+      }
+
+      &__stars {
+        @media (min-width: 768px) {
+          padding: 20px 32px;
+        }
       }
     }
   }
@@ -128,6 +206,14 @@ $lightPink: #ee69a4;
   flex-direction: column;
   gap: 16px;
   margin-top: 33px;
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+    padding: 0 16px 0 36px;
+    min-width: 1130px;
+  }
 
   &__single-user {
     background: $darkPurple;
@@ -142,6 +228,23 @@ $lightPink: #ee69a4;
       "c c c c c c c c c"
       "c c c c c c c c c";
 
+    @media (min-width: 768px) {
+      height: fit-content;
+      margin-right: 30px;
+
+      &:nth-child(1) {
+        margin-top: 50px;
+      }
+
+      &:nth-child(2) {
+        margin-top: 122px;
+      }
+
+      &:nth-child(3) {
+        margin-top: 194px;
+      }
+    }
+
     &__profile {
       grid-area: a;
     }
@@ -149,7 +252,7 @@ $lightPink: #ee69a4;
     &__info {
       grid-area: b;
 
-      &____name {
+      &__name {
         color: $white;
       }
 
