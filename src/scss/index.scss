@@ -1,3 +1,74 @@
+/* Reset styles */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+picture,
+div,
+img {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* End of reset styles */
+
 /* spartan-regular - latin */
 @font-face {
   font-family: "Spartan";
@@ -64,6 +135,10 @@
 html {
   font-size: 16px;
   font-family: "Spartan", sans-serif;
+
+  @media (min-width: 1920px) {
+    font-size: 150%;
+  }
 }
 
 $darkPurple: #512051;
@@ -76,194 +151,263 @@ $white: #ffffff;
 $lightPink: #ee69a4;
 
 .container {
+  padding: 0;
+
   @media (min-width: 768px) {
-    height: 100vh;
-    margin: 100px;
+    padding: 60px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 127px 165px 72px;
+  }
+}
+
+.upper-wavy-wrapper {
+  position: absolute;
+  width: 100vw;
+
+  & img {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    width: 40vw;
+  }
+}
+
+.lower-wavy-wrapper {
+  position: absolute;
+  width: 50vh;
+  right: 0;
+  top: 50%;
+
+  & img {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    top: 15%;
+    width: 80vw;
   }
 }
 
 .intro {
+  padding: 80px 24px 40px;
+
   @media (min-width: 768px) {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-areas:
-      "a a a a b b b b b b"
-      "a a a a b b b b b b";
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0;
+  }
+
+  @media (min-width: 1024px) {
+    gap: 32px;
+  }
+
+  @media (min-width: 1440px) {
     gap: 132px;
   }
+}
 
-  &__information {
-    margin: 16px 24px 24px 16px;
+.information {
+  text-align: center;
+  padding: 0 0 50px 0;
 
-    @media (min-width: 768px) {
-      grid-area: a;
-      text-align: left;
+  @media (min-width: 768px) {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    width: 40%;
+  }
+}
+
+.information__title {
+  color: $darkPurple;
+  font-family: $spartanBolder;
+  font-size: 32px;
+  line-height: 32px;
+  text-align: center;
+  letter-spacing: -1px;
+  text-align: center;
+  margin: 0;
+  padding: 0 0 18px 0;
+
+  @media (min-width: 768px) {
+    text-align: left;
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 48px;
+    letter-spacing: -2px;
+    font-family: $spartanBolder;
+  }
+
+  @media (min-width: 1920px) {
+    font-size: 72px;
+    line-height: 72px;
+    padding: 0 0 36px 0;
+  }
+}
+
+.information__text {
+  color: $informationTextColor;
+  font-family: $spartanBold;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: -1px;
+  text-align: center;
+  margin: 0;
+
+  @media (min-width: 768px) {
+    text-align: left;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 25px;
+    letter-spacing: -1px;
+    font-family: $spartanBold;
+  }
+}
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 24px 0;
+
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    padding: 0;
+  }
+
+  @media (min-width: 1024px) {
+  }
+}
+
+.reviews__section {
+  background: $introReviewsSectionBackground;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  gap: 16px;
+  margin: 0px 23px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    padding: 20px 32px;
+    gap: 32px;
+    width: 310px;
+
+    &:nth-of-type(1) {
+      margin: 0 90px 0 0;
     }
 
-    &__headline {
-      color: $darkPurple;
-      font-family: $spartanBold;
-      text-align: center;
-      margin: 0;
-      padding: 16px 24px 0px 24px;
+    &:nth-of-type(2) {
+      margin: 0 45px 0 0;
+    }
 
-      @media (min-width: 768px) {
-        text-align: left;
-        font-size: 48px;
-        font-weight: bold;
-        line-height: 48px;
-        letter-spacing: -1.71429px;
-        font-family: $spartanBolder;
+    &:nth-of-type(3) {
+      margin: 0;
+    }
+
+    @media (min-width: 1440px) {
+      width: 445px;
+    }
+
+    @media (min-width: 1920px) {
+      width: 890px;
+
+      &:nth-of-type(1) {
+        margin: 0 180px 0 0;
       }
-    }
 
-    &__text {
-      color: $informationTextColor;
-      font-family: $spartanBold;
-      font-size: 15px;
-      line-height: 25px;
-      letter-spacing: -0.5px;
-      text-align: center;
-      padding: 18px 24px;
-      margin: 0;
-
-      @media (min-width: 768px) {
-        text-align: left;
-        font-family: Spartan;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 15px;
-        line-height: 25px;
-        letter-spacing: -0.5px;
-        font-family: $spartanBold;
+      &:nth-of-type(2) {
+        margin: 0 90px 0 0;
       }
     }
   }
 
-  &__reviews {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  & p {
+    color: $darkPurple;
+    margin: 0;
+    font-family: $spartanBolder;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 15px;
 
-    @media (min-width: 768px) {
-      grid-area: b;
-      display: flex;
-      margin-left: 90px;
+    @media (min-width: 1920px) {
+      font-size: 30px;
+      line-height: 30px;
     }
+  }
 
-    &__section {
-      background: $introReviewsSectionBackground;
-      border-radius: 8px;
+  &__stars {
+    @media (min-width: 768px) {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 16px;
-      gap: 16px;
-      margin: 0px 23px;
-
-      @media (min-width: 768px) {
-        flex-direction: row;
-        padding: 0;
-
-        &:nth-of-type(1) {
-          margin-left: 0px;
-          margin-right: 144px;
-        }
-
-        &:nth-of-type(2) {
-          margin-left: 48px;
-          margin-right: 96px;
-        }
-
-        &:nth-of-type(3) {
-          margin-left: 96px;
-          margin-right: 48px;
-        }
-      }
-
-      & p {
-        color: $darkPurple;
-        margin: 0;
-        font-family: $spartanBolder;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 13px;
-        line-height: 15px;
-      }
-
-      &__stars {
-        @media (min-width: 768px) {
-          padding: 20px 32px;
-        }
-      }
+      flex-wrap: nowrap;
     }
   }
 }
 
 .users {
-  padding: 16px 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-top: 33px;
+  padding: 0 24px;
 
   @media (min-width: 768px) {
     display: flex;
+    align-items: flex-start;
     flex-direction: row;
-    margin-top: 0;
-    padding: 0 16px 0 36px;
-    min-width: 1130px;
+    gap: 30px;
+    padding: 72px 0 0 0;
   }
+}
 
-  &__single-user {
-    background: $darkPurple;
-    gap: 15px;
-    border-radius: 8px;
-    padding: 40px 32px 32px 32px;
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-areas:
-      "a a b b b b b b b"
-      "a a b b b b b b b"
-      "c c c c c c c c c"
-      "c c c c c c c c c";
+.single-user {
+  background: $darkPurple;
+  border-radius: 8px;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
 
-    @media (min-width: 768px) {
-      height: fit-content;
-      margin-right: 30px;
+  @media (min-width: 768px) {
+    margin: 0;
+    min-height: 234px;
 
-      &:nth-child(1) {
-        margin-top: 50px;
-      }
-
-      &:nth-child(2) {
-        margin-top: 122px;
-      }
-
-      &:nth-child(3) {
-        margin-top: 194px;
-      }
+    &:nth-of-type(2) {
+      margin-top: 30px;
     }
 
-    &__profile {
-      grid-area: a;
-    }
-
-    &__info {
-      grid-area: b;
-
-      &__name {
-        color: $white;
-      }
-
-      &__verified {
-        color: $lightPink;
-      }
-    }
-
-    &__opinion {
-      color: $white;
-      grid-area: c;
+    &:nth-of-type(3) {
+      margin-top: 60px;
     }
   }
+}
+
+.single-user__info {
+  &__name {
+    color: $white;
+  }
+
+  &__verified {
+    color: $lightPink;
+  }
+}
+
+.single-user__opinion {
+  color: $white;
+}
+
+.single-user__photo-and-info {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
 }
